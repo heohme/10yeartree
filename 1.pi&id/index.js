@@ -24,4 +24,5 @@ function findPiSegment(length) {
 }
 
 // 找出并打印一个符合18位长度的圆周率片段
-console.log("number is: ", findPiSegment(18));
+// console.log("number is: ", findPiSegment(18));
+console.log("test",pi);
