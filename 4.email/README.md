@@ -1,28 +1,38 @@
-leetcode 原型：https://leetcode.cn/problems/find-the-town-judge/description/
+leetcode 原型：https://leetcode.cn/problems/unique-email-addresses/
 
-小镇里有 n 个人，按从 1 到 n 的顺序编号。传言称，这些人中有一个暗地里是小镇法官。
+每个 有效电子邮件地址 都由一个 本地名 和一个 域名 组成，以 '@' 符号分隔。除小写字母之外，电子邮件地址还可以含有一个或多个 '.' 或 '+' 。
 
-如果小镇法官真的存在，那么：
+例如，在 alice@leetcode.com中， alice 是 本地名 ，而 leetcode.com 是 域名 。
+如果在电子邮件地址的 本地名 部分中的某些字符之间添加句点（'.'），则发往那里的邮件将会转发到本地名中没有点的同一地址。请注意，此规则 不适用于域名 。
 
-小镇法官不会信任任何人。
-每个人（除了小镇法官）都信任这位小镇法官。
-只有一个人同时满足属性 1 和属性 2 。
-给你一个数组 trust ，其中 trust[i] = [ai, bi] 表示编号为 ai 的人信任编号为 bi 的人。
+例如，"alice.z@leetcode.com” 和 “alicez@leetcode.com” 会转发到同一电子邮件地址。
+如果在 本地名 中添加加号（'+'），则会忽略第一个加号后面的所有内容。这允许过滤某些电子邮件。同样，此规则 不适用于域名 。
 
-如果小镇法官存在并且可以确定他的身份，请返回该法官的编号；否则，返回 -1 。
+例如 m.y+name@email.com 将转发到 my@email.com。
+可以同时使用这两个规则。
+
+给你一个字符串数组 emails，我们会向每个 emails[i] 发送一封电子邮件。返回实际收到邮件的不同地址数目。
 
  
 ```
 示例 1：
 
-输入：n = 2, trust = [[1,2]]
+输入：emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
 输出：2
+解释：实际收到邮件的是 "testemail@leetcode.com" 和 "testemail@lee.tcode.com"。
 示例 2：
 
-输入：n = 3, trust = [[1,3],[2,3]]
+输入：emails = ["a@leetcode.com","b@leetcode.com","c@leetcode.com"]
 输出：3
-示例 3：
-
-输入：n = 3, trust = [[1,3],[2,3],[3,1]]
-输出：-1
 ```
+
+提示：
+```
+1 <= emails.length <= 100
+1 <= emails[i].length <= 100
+emails[i] 由小写英文字母、'+'、'.' 和 '@' 组成
+每个 emails[i] 都包含有且仅有一个 '@' 字符
+所有本地名和域名都不为空
+本地名不会以 '+' 字符作为开头
+域名以 ".com" 后缀结尾。
+域名在 ".com" 后缀前至少包含一个字符```
